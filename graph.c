@@ -29,8 +29,8 @@ int push_node(struct queue* q, int x) //добавление в очередь
 	}
 	else
 		//printf("queue is full\n");
-	return 1;
-} 
+		return 1;
+}
 int print(struct queue* q) //вывод элементов
 {
 	int h;
@@ -43,38 +43,7 @@ int print(struct queue* q) //вывод элементов
 		printf("%d ", q->que[h]);
 	return 0;
 }
-int graph_bypass(struct queue* q,int countf,int **matr)
-{
-//	int matr[N][N];
-//	int count;
-//	scanf("%d ", &count);
-//	for (int i = 0; i < count; i++)
-//	{
-//		for (int j = 0; j < count; j++)
-//		{
-//			scanf("%d", &matr[i][j]);
-//		}
-//	}
-	while (isempty(q) == 0)
-	{
-		int curnode = pop(q);
-		for (int i = 0; i < countf; i++)
-		{
-			if (matr[curnode][i] == 1)
-			{
-				push_node(q, i);
-				for (int j = 0; j < countf; j++)
-				{
-					matr[j][i] = 0;
-				}
-			}
-			matr[i][curnode] = 0;
-		}
-		printf("%d ", curnode + 1);
-	}
-	return 0;
-}
-int adding_element(struct queue* q)
+int graph_bypass(struct queue* q)
 {
 	int matr[N][N];
 	int count;
@@ -86,50 +55,22 @@ int adding_element(struct queue* q)
 			scanf("%d", &matr[i][j]);
 		}
 	}
-	graph_bypass(q,count,matr);
+	while (isempty(q) == 0)
+	{
+		int curnode = pop(q);
+		for (int i = 0; i < count; i++)
+		{
+			if (matr[curnode][i] == 1)
+			{
+				push_node(q, i);
+				for (int j = 0; j < count; j++)
+				{
+					matr[j][i] = 0;
+				}
+			}
+			matr[i][curnode] = 0;
+		}
+		printf("%d ", curnode + 1);
+	}
 	return 0;
-//}
-//
-//#include "graph.h"
-//void inqueue(struct queue* q) //èíèöèàëèçàöèÿ î÷åðåäè
-//{
-//	q->quefirst = 0;
-//	q->quelast = -1;
-//	return;
-//}
-//int isempty(struct queue* q) //ïðîâåðêà ïóñòà ëè î÷åðåäü
-//{
-//	if (q->quelast < q->quefirst)
-//		return 1;
-//	else  return 0;
-//}
-//int pop(struct queue* q) // óäàëåíèå â î÷åðåäè
-//{
-//	int x = q->que[q->quefirst];
-//	q->quefirst++;
-//	return x;
-//}
-//void push(struct queue* q, int x) //äîáàâëåíèå â î÷åðåäü
-//{
-//	if (q->quelast < N)
-//	{
-//		q->quelast++;
-//		q->que[q->quelast] = x;
-//
-//	}
-//	else
-//		printf("queue is full\n");
-//	return;
-//}
-//void print(struct queue* q) //âûâîä ýëåìåíòîâ
-//{
-//	int h;
-//	if (isempty(q) == 1)
-//	{
-//		printf("queue is empty\n");
-//		return;
-//	}
-//	for (h = q->quefirst; h <= q->quelast; h++)
-//		printf("%d ", q->que[h]);
-//	return;
-//}
+}
