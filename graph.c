@@ -45,7 +45,7 @@ int print(struct queue* q) //вывод элементов
 }
 int graph_bypass(struct queue* q,int countf,int **matr)
 {
-//	int matr[N][N];
+	//	int matr[N][N];
 //	int count;
 //	scanf("%d ", &count);
 //	for (int i = 0; i < count; i++)
@@ -55,6 +55,7 @@ int graph_bypass(struct queue* q,int countf,int **matr)
 //			scanf("%d", &matr[i][j]);
 //		}
 //	}
+
 	while (isempty(q) == 0)
 	{
 		int curnode = pop(q);
@@ -83,33 +84,64 @@ int adding_element(struct queue* q)
 	{
 		for (int j = 0; j < count; j++)
 		{
-			scanf("%d", &matr[i][j]);
+			scanf("%d", & matr[i][j]);
 		}
 	}
-	graph_bypass(q,count,matr);
+	graph_bypass(q,count,matr[N][N]);
 	return 0;
-//}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //
 //#include "graph.h"
-//void inqueue(struct queue* q) //èíèöèàëèçàöèÿ î÷åðåäè
+//void inqueue(struct queue* q) //eieoeaeecaoey i?a?aae
 //{
 //	q->quefirst = 0;
 //	q->quelast = -1;
 //	return;
 //}
-//int isempty(struct queue* q) //ïðîâåðêà ïóñòà ëè î÷åðåäü
+//int isempty(struct queue* q) //i?iaa?ea ionoa ee i?a?aau
 //{
 //	if (q->quelast < q->quefirst)
 //		return 1;
 //	else  return 0;
 //}
-//int pop(struct queue* q) // óäàëåíèå â î÷åðåäè
+//int pop(struct queue* q) // oaaeaiea a i?a?aae
 //{
 //	int x = q->que[q->quefirst];
 //	q->quefirst++;
 //	return x;
 //}
-//void push(struct queue* q, int x) //äîáàâëåíèå â î÷åðåäü
+//void push(struct queue* q, int x) //aiaaaeaiea a i?a?aau
 //{
 //	if (q->quelast < N)
 //	{
@@ -121,7 +153,7 @@ int adding_element(struct queue* q)
 //		printf("queue is full\n");
 //	return;
 //}
-//void print(struct queue* q) //âûâîä ýëåìåíòîâ
+//void print(struct queue* q) //auaia yeaiaioia
 //{
 //	int h;
 //	if (isempty(q) == 1)
